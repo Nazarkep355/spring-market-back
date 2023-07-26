@@ -1,2 +1,5 @@
-package com.example.springmarketback.entity.userentity;public enum Role {
+package com.example.springmarketback.entity.userentity;
+
+public enum Role {
+    USER,ADMIN
 }
