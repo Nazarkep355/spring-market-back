@@ -22,5 +22,9 @@ public class Item {
     private ItemType itemType;
     @ManyToMany
     private List<Detail> details;
+    @OneToOne
+    private Photo mainPhoto;
+    @OneToMany
+    private List<Photo> photos;
     private double price;
 }
