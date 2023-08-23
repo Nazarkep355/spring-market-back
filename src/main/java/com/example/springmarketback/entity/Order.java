@@ -6,21 +6,24 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import java.util.List;
+import java.util.Date;
 
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
 @Builder
 @Entity
-public class Item {
+public class Order {
+
     @Id
-    @GeneratedValue
     private Long id;
-    private String name;
+
     @ManyToOne
-    private ItemType itemType;
-    @ManyToMany
-    private List<Detail> details;
-    private double price;
+    @JoinColumn(name = "item")
+    private Item item;
+
+    private Date date;
+
+    private double sellPrice;
+
 }
