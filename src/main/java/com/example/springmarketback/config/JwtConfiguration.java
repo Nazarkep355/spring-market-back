@@ -24,11 +24,15 @@ public class JwtConfiguration {
         return new BCryptPasswordEncoder();
     }
 
+
+
     @Bean
     public UserDetailsService userDetailsService(){
         return username -> userRepository.findUserByEmail(username)
                 .orElseThrow(()->new UsernameNotFoundException("Email was not found"));
     }
+
+
 
     @Bean
     public AuthenticationProvider authenticationProvider(){
@@ -37,6 +41,8 @@ public class JwtConfiguration {
         provider.setUserDetailsService(userDetailsService());
         return provider;
     }
+
+
 
     @Bean
     public AuthenticationManager authenticationManager(AuthenticationConfiguration configuration)
